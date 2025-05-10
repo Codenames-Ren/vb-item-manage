@@ -20,6 +20,19 @@ Public Class PosDao
 
     End Function
 
+    Public Function getIdByCode(code As String) As Integer
+        npgsqlConn = DbConnection.OpenConnection()
+        query = "SELECT v.id from positions v where v.code = @code"
+        cmd = New NpgsqlCommand(query, npgsqlConn)
+        cmd.Parameters.AddWithValue("@code", code)
+        rs = cmd.ExecuteReader()
+        While rs.Read()
+            result = rs.GetInt32(0)
+            Exit While
+        End While
+
+        Return result
+    End Function
     Public Function getAllCode() As NpgsqlDataReader
         npgsqlConn = DbConnection.OpenConnection()
         query = "select code from positions where isdelete is null"

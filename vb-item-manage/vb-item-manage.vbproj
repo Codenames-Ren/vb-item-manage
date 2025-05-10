@@ -132,6 +132,7 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Dao\DbConnection.vb" />
+    <Compile Include="Dao\ItemDao.vb" />
     <Compile Include="Dao\PosDao.vb" />
     <Compile Include="Dao\VendorDao.vb" />
     <Compile Include="Form1.vb">
